@@ -1,7 +1,7 @@
 import axios from "axios";
 import querystring from "querystring";
 
-const { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET } = process.env;
+const { CLIENT_ID, CLIENT_SECRET } = process.env;
 
 export const getAccessToken = async (refresh_token: string) => {
 	try {
@@ -11,7 +11,7 @@ export const getAccessToken = async (refresh_token: string) => {
 			headers: {
 				"Content-Type": "application/x-www-form-urlencoded",
 				Authorization: `Basic ${Buffer.from(
-					SPOTIFY_CLIENT_ID + ":" + SPOTIFY_CLIENT_SECRET
+					CLIENT_ID + ":" + CLIENT_SECRET
 				).toString("base64")}`,
 			},
 			data: querystring.stringify({
