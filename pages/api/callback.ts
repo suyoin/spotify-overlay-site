@@ -1,7 +1,7 @@
 import axios from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
 
-const { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET } = process.env;
+const { CLIENT_ID, CLIENT_SECRET } = process.env;
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 	if (!req.query.code) {
@@ -10,8 +10,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 	res.status(200);
 
-	console.log("Hello")
-	const axiosResponse = axios({
+	const response = await axios({
 		method: "POST",
 		url: "https://accounts.spotify.com/api/token",
 		params: {
@@ -21,14 +20,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 		},
 		headers: {
 			Authorization: `Basic ${Buffer.from(
-				SPOTIFY_CLIENT_ID + ":" + SPOTIFY_CLIENT_SECRET
+				CLIENT_ID + ":" + CLIENT_SECRET
 			).toString("base64")}`,
 			"Content-Type": "application/x-www-form-urlencoded"
 		},
 	})
-	axiosResponse.catch((err) => {console.error(err)})
-
-	const response = await axiosResponse;
 
 	res.send(response.data.refresh_token);
 };
