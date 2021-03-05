@@ -10,7 +10,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 	res.status(200);
 
-	const response = await axios({
+	console.log("Hello")
+	const axiosResponse = axios({
 		method: "POST",
 		url: "https://accounts.spotify.com/api/token",
 		params: {
@@ -24,7 +25,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 			).toString("base64")}`,
 			"Content-Type": "application/x-www-form-urlencoded"
 		},
-	});
+	})
+	axiosResponse.catch((err) => {console.error(err)})
+
+	const response = await axiosResponse;
 
 	res.send(response.data.refresh_token);
 };
