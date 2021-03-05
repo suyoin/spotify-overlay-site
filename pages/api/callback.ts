@@ -22,6 +22,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 			Authorization: `Basic ${Buffer.from(
 				SPOTIFY_CLIENT_ID + ":" + SPOTIFY_CLIENT_SECRET
 			).toString("base64")}`,
+			"Content-Type": "application/x-www-form-urlencoded"
 		},
 	});
 
