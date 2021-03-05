@@ -14,7 +14,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 	const axiosResponse = axios({
 		method: "POST",
 		url: "https://accounts.spotify.com/api/token",
-		data: {
+		params: {
 			code: req.query.code,
 			redirect_uri: "https://spotify-overlay-site.vercel.app",
 			grant_type: "authorization_code",
