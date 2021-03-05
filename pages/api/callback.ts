@@ -22,7 +22,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 			Authorization: `Basic ${Buffer.from(
 				CLIENT_ID + ":" + CLIENT_SECRET
 			).toString("base64")}`,
-			"Content-Type": "application/x-www-form-urlencoded"
 		},
 	})
 
