@@ -11,56 +11,6 @@ export default function Overlay({ refresh_token }) {
 	] = useState<SpotifyCurrentlyPlayingTrack>();
 
 	const intervalHandle = useRef<NodeJS.Timeout>();
-	const containerRef = useRef<HTMLDivElement>();
-
-	useEffect(() => {
-		let wX = 0;
-		let wY = 0;
-		let dragging = false;
-
-		const mouseDownCallback = (ev: MouseEvent) => {
-			wX = ev.pageX;
-			wY = ev.pageY;
-			dragging = true;
-		};
-
-		const mouseMoveCallback = (ev: MouseEvent) => {
-			if (!dragging) {
-				return;
-			}
-
-			window.moveTo(ev.screenX - wX, ev.screenY - wY);
-
-			containerRef.current.style.top =
-				containerRef.current.offsetTop - (wY - ev.screenY) + "px";
-			containerRef.current.style.left =
-				containerRef.current.offsetLeft - (wX - ev.screenX) + "px";
-		};
-
-		const mouseUpCallback = () => {
-			dragging = false;
-		};
-
-		containerRef.current.addEventListener("mousedown", mouseDownCallback);
-
-		window.addEventListener("mousemove", mouseMoveCallback);
-
-		window.addEventListener("mouseup", mouseUpCallback);
-
-		return () => {
-			if (window) {
-				window.removeEventListener("mousemove", mouseMoveCallback);
-				window.removeEventListener("mouseup", mouseUpCallback);
-			}
-
-			if (containerRef.current) {
-				containerRef.current.removeEventListener(
-					"mousedown",
-					mouseDownCallback
-				);
-			}
-		};
-	}, [containerRef]);
 
 	useEffect(() => {
 		if (intervalHandle.current) {
@@ -116,7 +66,7 @@ export default function Overlay({ refresh_token }) {
 	}, []);
 
 	if (!currentlyPlaying) {
-		return <div ref={containerRef} />;
+		return <div />;
 	}
 
 	return (
@@ -151,7 +101,6 @@ export default function Overlay({ refresh_token }) {
 				}}
 			/>
 			<div
-				ref={containerRef}
 				style={{
 					position: "absolute",
 					left: 0,
