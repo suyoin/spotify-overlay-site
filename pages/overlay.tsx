@@ -50,6 +50,7 @@ export default function Overlay({ refresh_token }) {
 					...currentlyPlaying,
 					progress_ms: currentlyPlaying.progress_ms + 1000,
 				});
+				console.log(currentlyPlaying.progress_ms,currentlyPlaying.item?.duration_ms);
 			}
 		};
 
@@ -68,8 +69,6 @@ export default function Overlay({ refresh_token }) {
 	if (!currentlyPlaying) {
 		return <div />;
 	}
-
-	console.log(currentlyPlaying.progress_ms,currentlyPlaying.item?.duration_ms);
 
 	return (
 		<div
