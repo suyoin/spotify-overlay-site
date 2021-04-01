@@ -190,7 +190,7 @@ export default function Overlay({ refresh_token }) {
 						height: "0.4rem",
 						bottom: 0,
 
-						background-color: "rgba(98,205,98,1)",
+						backgroundColor: "rgba(98,205,98,1)",
 					}}
 				/>
 			</div>
