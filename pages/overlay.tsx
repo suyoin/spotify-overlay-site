@@ -197,7 +197,7 @@ export default function Overlay({ refresh_token }) {
 							boxSizing: "border-box",
 						}}
 					>
-						{currentlyPlaying?.item.name}
+						{currentlyPlaying?.item?.name}
 					</p>
 					<p
 						style={{
