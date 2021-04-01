@@ -69,6 +69,8 @@ export default function Overlay({ refresh_token }) {
 		return <div />;
 	}
 
+	console.log(currentlyPlaying.progress_ms,currentlyPlaying.item?.duration_ms);
+
 	return (
 		<div
 			style={{
