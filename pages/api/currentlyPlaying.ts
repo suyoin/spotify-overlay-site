@@ -37,7 +37,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 						res.status(200);
 
 						if (currently_playing_id === playing.data?.item?.id) {
-							res.send("Same track");
+							res.send({
+						    		same_track: true,
+						    		progress_ms: playing.data.progress_ms,
+						    	});
 						} else {
 							res.send(playing.data);
 						}
