@@ -55,7 +55,7 @@ export default function Overlay({ refresh_token }) {
 				);
 			}
 		};
-	}, []);
+	}, [containerRef]);
 
 	useEffect(() => {
 		if (intervalHandle.current) {
@@ -111,7 +111,7 @@ export default function Overlay({ refresh_token }) {
 	}, []);
 
 	if (!currentlyPlaying) {
-		return <div />;
+		return <div ref={containerRef} />;
 	}
 
 	return (
