@@ -38,11 +38,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 						if (currently_playing_id === playing.data?.item?.id) {
 							res.send({
-						    		same_track: true,
-						    		progress_ms: playing.data.progress_ms,
-						    	});
+								response_type: "same_track",
+								progress_ms: playing.data.progress_ms,
+							} as SpotifyProgressUpdate);
 						} else {
-							res.send(playing.data);
+							res.send({
+								response_type: "new",
+								...playing.data,
+							} as SpotifyCurrentlyPlayingTrack);
 						}
 
 						return resolve(playing.data);

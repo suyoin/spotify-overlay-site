@@ -23,7 +23,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 				CLIENT_ID + ":" + CLIENT_SECRET
 			).toString("base64")}`,
 		},
-	})
+	});
 
 	res.send(response.data.refresh_token);
 };
