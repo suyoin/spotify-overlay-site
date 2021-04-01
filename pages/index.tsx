@@ -4,8 +4,11 @@ export default function Index() {
 			style={{
 				display: "grid",
 				placeItems: "center",
-				width: "100%",
-				height: "100%",
+				width: "100vw",
+				height: "100vh",
+
+				padding: "0px",
+				margin: "0px",
 			}}
 		>
 			<a
