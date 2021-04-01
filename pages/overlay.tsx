@@ -118,11 +118,11 @@ export default function Overlay({ refresh_token }) {
 		<div
 			style={{
 				position: "absolute",
-				right: 0,
-				top: 0,
+				left: "0.5rem",
+				bottom: "0.5rem",
 
-				width: "320px",
-				height: "100px",
+				width: "20rem",
+				height: "6rem",
 				borderRadius: ".375rem",
 				overflow: "hidden",
 				overflowX: "hidden",
@@ -163,7 +163,7 @@ export default function Overlay({ refresh_token }) {
 					boxSizing: "border-box",
 
 					backgroundImage:
-						"linear-gradient(to right, rgba(17,24,39,1), rgba(17,24,39,0.7) 50%, transparent, rgba(17,24,39,0))",
+						"linear-gradient(to right, rgba(25,25,25,1), rgba(25,25,25,0.7) 50%, transparent, rgba(25,25,25,0))",
 				}}
 			>
 				<div
