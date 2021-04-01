@@ -21,7 +21,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
 		const response = await axios({
 			method: "POST",
-			url: "/api/callback",
+			url: "https://spotify-overlay-site.vercel.app/api/callback",
 			params: {
 				code,
 			},
