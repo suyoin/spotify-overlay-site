@@ -27,6 +27,7 @@ export default function Overlay({ refresh_token }) {
 				secondsElapsed = 0;
 				getCurrentlyPlaying(refresh_token, currentlyPlaying?.item?.id)
 					.then((response) => {
+						secondsElapsed = 0;
 						switch (response.response_type) {
 							case "new": {
 								setCurrentlyPlaying(response);
@@ -45,12 +46,17 @@ export default function Overlay({ refresh_token }) {
 						deleteAuthCookies();
 						Router.push("/");
 					});
-			} else if (currentlyPlaying !== undefined) {
-				setCurrentlyPlaying({
-					...currentlyPlaying,
-					progress_ms: currentlyPlaying.progress_ms + 1000,
+			} else {
+				setCurrentlyPlaying((current) => {
+					if (!current) {
+						return
+					}
+					
+					return {
+						...currentlyPlaying,
+						progress_ms: current.progress_ms + 1000,
+					}
 				});
-				console.log(currentlyPlaying.progress_ms,currentlyPlaying.item?.duration_ms);
 			}
 		};
 
