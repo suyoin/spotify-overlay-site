@@ -30,6 +30,11 @@ export default function Overlay({ refresh_token }) {
 			}
 
 			window.moveTo(ev.screenX - wX, ev.screenY - wY);
+
+			containerRef.current.style.top =
+				containerRef.current.offsetTop - (wY - ev.screenY) + "px";
+			containerRef.current.style.left =
+				containerRef.current.offsetLeft - (wX - ev.screenX) + "px";
 		};
 
 		const mouseUpCallback = () => {
