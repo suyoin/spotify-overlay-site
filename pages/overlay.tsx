@@ -117,8 +117,8 @@ export default function Overlay({ refresh_token }) {
 				right: 0,
 				top: 0,
 
-				width: "100%",
-				height: "100%",
+				width: "320px",
+				height: "100px",
 				borderRadius: ".375rem",
 				overflow: "hidden",
 				overflowX: "hidden",
