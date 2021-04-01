@@ -48,7 +48,7 @@ export default function Overlay({ refresh_token }) {
 			} else if (currentlyPlaying !== undefined) {
 				setCurrentlyPlaying({
 					...currentlyPlaying,
-					progress_ms: currentlyPlaying.progress_ms + 1,
+					progress_ms: currentlyPlaying.progress_ms + 1000,
 				});
 			}
 		};
@@ -184,6 +184,15 @@ export default function Overlay({ refresh_token }) {
 							: ""}
 					</p>
 				</div>
+				<div style={{
+						position: "absolute",
+						width: `${(currentlyPlaying?.progress_ms || 0)/${currentlyPlaying?.item?.duration_ms || 1}}%`,
+						height: "0.4rem",
+						bottom: 0,
+
+						background-color: "rgba(98,205,98,1)",
+					}}
+				/>
 			</div>
 		</div>
 	);
