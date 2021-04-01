@@ -64,7 +64,7 @@ export default function Overlay({ refresh_token }) {
 		}
 
 		console.log("Starting fetch interval");
-		let secondsElapsed = 0;
+		let secondsElapsed = 4;
 		const effect = () => {
 			secondsElapsed += 1;
 
@@ -90,7 +90,7 @@ export default function Overlay({ refresh_token }) {
 						deleteAuthCookies();
 						Router.push("/");
 					});
-			} else {
+			} else if (currentlyPlaying !== undefined) {
 				setCurrentlyPlaying({
 					...currentlyPlaying,
 					progress_ms: currentlyPlaying.progress_ms + 1,
