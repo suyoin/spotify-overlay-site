@@ -36,7 +36,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 				path: "/",
 			});
 
-			res.redirect("/");
+			res.redirect("/overlay");
 		} else {
 			res.redirect("/#" + querystring.stringify({ error: "invalid_token" }));
 		}
