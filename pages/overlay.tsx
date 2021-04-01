@@ -110,6 +110,10 @@ export default function Overlay({ refresh_token }) {
 		};
 	}, []);
 
+	if (!currentlyPlaying) {
+		return <div />;
+	}
+
 	return (
 		<div
 			style={{
