@@ -48,7 +48,7 @@ export default function Overlay({ refresh_token }) {
 					});
 			} else {
 				setCurrentlyPlaying((current) => {
-					if (!current) {
+					if (!current || !current.is_playing) {
 						return
 					}
 					
