@@ -49,7 +49,7 @@ export default function Overlay({ refresh_token }) {
 			} else {
 				setCurrentlyPlaying((current) => {
 					if (!current || !current.is_playing) {
-						return
+						return current;
 					}
 					
 					return {
