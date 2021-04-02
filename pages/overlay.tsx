@@ -53,7 +53,7 @@ export default function Overlay({ refresh_token }) {
 					}
 					
 					return {
-						...currentlyPlaying,
+						...current,
 						progress_ms: current.progress_ms + 1000,
 					}
 				});
