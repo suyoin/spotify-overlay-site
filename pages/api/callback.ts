@@ -16,7 +16,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 		url: "https://accounts.spotify.com/api/token",
 		params: {
 			code: req.query.code,
-			redirect_uri: REDIRECT_URI,
+			redirect_uri: "https://spotify-overlay-site.vercel.app/",
 			grant_type: "authorization_code",
 		},
 		headers: {
